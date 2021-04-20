@@ -5,6 +5,11 @@ const EVENTS = {
     UNSELECT: 'unselect',
 };
 
+const KEY_CODES = {
+    ENTER: 'Enter',
+    SPACE: 'Space',
+};
+
 class Tab extends EventEmitter {
     constructor(element) {
         super();
@@ -15,21 +20,27 @@ class Tab extends EventEmitter {
     }
 
     isSelected() {
-        return (this.element.dataset.active === 'true');
+        return (this.element.ariaSelected === 'true');
     }
 
     select() {
         if (!this.isSelected()) {
-            this.element.dataset.active = 'true';
+            this.element.setAttribute('aria-selected', true);
+            this.element.removeAttribute('tabindex');
             this.emit(EVENTS.SELECT);
         }
     }
 
     unselect() {
         if (this.isSelected()) {
-            this.element.dataset.active = 'false';
+            this.element.setAttribute('aria-selected', 'false');
+            this.element.setAttribute('tabindex', '-1');
             this.emit(EVENTS.UNSELECT);
         }
+    }
+
+    focus() {
+        this.element.focus();
     }
 
     handleClick(e) {
@@ -37,8 +48,27 @@ class Tab extends EventEmitter {
         this.select();
     }
 
+    handleKeyup(e) {
+        e.preventDefault();
+
+        const key = e.code;
+
+        switch (key) {
+            case KEY_CODES.ENTER:
+            case KEY_CODES.SPACE: {
+                this.select();
+                break;
+            }
+        }
+    }
+
     bindHandlers() {
         this.element.addEventListener('click', this.handleClick.bind(this));
+        this.element.addEventListener('keyup', this.handleKeyup.bind(this));
+    }
+
+    static isTab(element) {
+        return element.matches('[role="tab"]');
     }
 }
 

@@ -7,11 +7,16 @@
     margin: 0 1rem 1rem 0;
     color: var(--color-light);
     font-size: 1.5rem;
-    outline: none;
+    text-decoration: none;
+    outline-offset: 0.5rem;
 }
 
-.tab[data-active='true'],
+.tab[aria-selected="true"],
 .tab:hover {
     color: var(--color-primary);
     border-color: var(--color-primary);
+}
+
+.tab[aria-selected="true"] {
+    cursor: default;
 }

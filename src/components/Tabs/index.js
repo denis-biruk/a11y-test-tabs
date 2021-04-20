@@ -6,7 +6,7 @@ class Tabs {
     }
 
     handleDOMContentLoaded() {
-        document.querySelectorAll('.tablist').forEach((element) => {
+        document.querySelectorAll('[role="tablist"]').forEach((element) => {
             new TabList(element);
         });
     }

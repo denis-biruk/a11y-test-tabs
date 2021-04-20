@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "parcel serve index.html --port 8000"
+    "start": "parcel serve index.html --port 8000",
+    "test:code": "jest --verbose",
+    "test:code:watch": "jest --verbose --watch"
   },
   "keywords": [
     "accessibility",

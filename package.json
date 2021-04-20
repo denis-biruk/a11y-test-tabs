@@ -1,0 +1,31 @@
+{
+  "name": "a11y-test-tabs",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "parcel serve index.html --port 8000"
+  },
+  "keywords": [
+    "accessibility",
+    "testing",
+    "tabs",
+    "holyjs"
+  ],
+  "files": [
+    "LICENSE.md",
+    "README.md"
+  ],
+  "author": {
+    "name": "Denis Biruk",
+    "email": "denis.biruk.dev@gmail.com"
+  },
+  "homepage": "https://github.com/shower/shower",
+  "license": "Unlicense",
+  "devDependencies": {
+    "parcel": "^2.0.0-beta.2"
+  },
+  "dependencies": {
+    "eventemitter3": "^4.0.7",
+    "normalize.css": "^8.0.1"
+  }
+}

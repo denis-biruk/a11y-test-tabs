@@ -1,0 +1,4 @@
+.tablist {
+    display: flex;
+    flex-wrap: wrap;
+}

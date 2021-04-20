@@ -1,0 +1,15 @@
+/* Dependencies */
+@import 'normalize.css';
+
+/* Common */
+@import './styles/variables.css';
+@import './styles/common.css';
+
+/* Components */
+@import './components/Tab/index.css';
+@import './components/TabList/index.css';
+@import './components/TabPanel/index.css';
+
+
+
+

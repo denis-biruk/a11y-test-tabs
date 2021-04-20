@@ -20,7 +20,7 @@ class Tab extends EventEmitter {
     }
 
     isSelected() {
-        return (this.element.ariaSelected === 'true');
+        return (this.element.getAttribute('aria-selected') === 'true');
     }
 
     select() {

@@ -1,11 +1,17 @@
 {
   "name": "a11y-test-tabs",
   "version": "1.0.0",
-  "description": "",
+  "description": "Automated accessibility testing example",
   "scripts": {
-    "start": "parcel serve index.html --port 8000",
+    "dev": "parcel serve index.html",
+    "build": "parcel build index.html",
+    "server": "npm run build && live-server ./dist --port=8000 --no-browser",
+    "server:no-build": "live-server ./dist --port=8000 --no-browser",
     "test:code": "jest --verbose",
-    "test:code:watch": "jest --verbose --watch"
+    "test:code:watch": "jest --verbose --watch",
+    "test:e2e:run": "npm run build && concurrently \"npm run server:no-build\" \"cypress run --config baseUrl=http://127.0.0.1:8000\"",
+    "test:e2e:open": "npm run build && concurrently \"npm run server:no-build\" \"cypress open --config baseUrl=http://127.0.0.1:8000\"",
+    "a11y-test": "npm run test:code && npm run test:e2e:run"
   },
   "keywords": [
     "accessibility",
@@ -27,9 +33,14 @@
     "@testing-library/dom": "^7.30.3",
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/user-event": "^13.1.5",
+    "axe-core": "^4.1.4",
     "babel-jest": "^26.6.3",
+    "concurrently": "^6.0.2",
+    "cypress": "^7.1.0",
+    "cypress-axe": "^0.12.2",
     "jest": "^26.6.3",
     "jest-axe": "^4.1.0",
+    "live-server": "^1.2.1",
     "parcel": "^2.0.0-beta.2"
   },
   "dependencies": {

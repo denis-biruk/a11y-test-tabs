@@ -1,14 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
     <title>Tabs</title>
+    <script type="module">
+        document.documentElement.classList.remove('no-js');
+        document.documentElement.classList.add('js');
+    </script>
     <link rel="stylesheet" type="text/css" href="/src/index.css" />
     <script src="/src/index.js" defer></script>
 </head>
 <body>
 <main>
     <div class="container">
+        <h1 class="title">Tabs example</h1>
         <div class="tablist" role="tablist" aria-label="Entertainment">
             <a id="tab_1" class="tab" href="#tab_panel_1" role="tab" aria-controls="tab_panel_1" aria-selected="true">Nils Frahm</a>
             <a id="tab_2" class="tab" href="#tab_panel_2" role="tab" aria-controls="tab_panel_2" aria-selected="false" tabindex="-1">Agnes Obel</a>

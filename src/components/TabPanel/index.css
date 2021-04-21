@@ -6,3 +6,11 @@
     font-size: 1.2rem;
     outline-offset: 0.5rem;
 }
+
+.no-js .tabpanel[hidden] {
+    display: block !important;
+}
+
+.no-js .tabpanel:not(:last-child) {
+    margin-bottom: 1rem;
+}
